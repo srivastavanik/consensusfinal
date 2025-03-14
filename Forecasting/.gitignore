@@ -1,0 +1,7 @@
+nftenv
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+results/
+NFT-Appraisal-Main-main/Backend/key.json
