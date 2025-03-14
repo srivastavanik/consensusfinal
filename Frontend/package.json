@@ -1,0 +1,33 @@
+{
+  "name": "forecaster-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the Forecaster AI-powered market prediction platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.4.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
+    "react-chartjs-2": "^5.2.0",
+    "@mui/material": "^5.13.7",
+    "@mui/icons-material": "^5.13.7",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-next": "^13.4.7",
+    "typescript": "^5.1.6",
+    "@types/react": "^18.2.14",
+    "@types/node": "^20.4.1"
+  },
+  "author": "Srivastavanik",
+  "license": "MIT"
+}

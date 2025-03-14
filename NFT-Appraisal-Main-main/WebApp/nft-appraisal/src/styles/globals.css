@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    
+    /* Pink theme colors */
+    --primary: 336 80% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 336 30% 95%;
+    --secondary-foreground: 336 50% 45%;
+    
+    --muted: 336 20% 96%;
+    --muted-foreground: 336 10% 45%;
+    --accent: 336 90% 65%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 336 15% 90%;
+    --input: 336 15% 95%;
+    --ring: 336 70% 60%;
+    
+    /* Chart colors */
+    --chart-1: 336 80% 65%;
+    --chart-2: 336 60% 55%;
+    --chart-3: 300 60% 60%;
+    --chart-4: 270 60% 60%;
+    --chart-5: 336 90% 70%;
+    
+    --radius: 0.5rem
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Dark mode pink theme */
+    --primary: 336 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 336 30% 10%;
+    --secondary-foreground: 336 50% 90%;
+    
+    --muted: 336 20% 15%;
+    --muted-foreground: 336 10% 70%;
+    --accent: 336 50% 25%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 336 15% 25%;
+    --input: 336 15% 20%;
+    --ring: 336 70% 50%;
+    
+    /* Dark mode chart colors */
+    --chart-1: 336 70% 50%;
+    --chart-2: 336 50% 40%;
+    --chart-3: 300 50% 45%;
+    --chart-4: 270 50% 45%;
+    --chart-5: 336 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    overflow-y: auto;
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    display: block !important;
+    background-color: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.6);
+    border-radius: 8px;
+    border: 3px solid hsl(var(--muted));
+    min-height: 40px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+  
+  /* Firefox scrollbar */
+  * {
+    scrollbar-color: hsl(var(--primary) / 0.6) hsl(var(--muted));
+    scrollbar-width: auto;
+  }
+}
+
+/* Input field text color */
+input[type="text"], input[type="search"], input[type="email"], input[type="password"] {
+  color: hsl(var(--foreground));
+  font-weight: 400;
+}
+
+/* Custom CSS classes for our dashboard */
+.dashboard-container {
+  @apply grid gap-4 mt-4;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.dashboard-card {
+  @apply bg-card rounded-xl shadow-md p-6 transition-all duration-200;
+}
+
+.dashboard-card:hover {
+  @apply shadow-lg -translate-y-0.5;
+}
+
+.gradient-text {
+  @apply inline-block;
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.consensus-model-item {
+  @apply border-l-4 border-primary pl-4 mb-4 transition-all duration-200;
+}
+
+.consensus-model-item:hover {
+  @apply border-accent bg-secondary/30;
+}
+
+.model-card {
+  @apply border border-border rounded-lg p-4 mb-4 transition-all duration-200;
+}
+
+.model-card:hover {
+  @apply border-primary/50 shadow-md;
+}
+
+.prediction-result-card {
+  @apply rounded-xl p-6 mt-6 border-l-4 border-primary;
+  background: linear-gradient(to right, hsl(var(--secondary)/80%), hsl(var(--secondary)/30%));
+}
+
+.confidence-bar {
+  @apply h-2 bg-muted rounded-full overflow-hidden mt-2 mb-4;
+}
+
+.confidence-fill {
+  @apply h-full rounded-full transition-all duration-500;
+  background: linear-gradient(90deg, hsl(var(--primary)/70%) 0%, hsl(var(--primary)) 100%);
+}
+
+.evidence-item {
+  @apply bg-card rounded-lg p-4 mb-3 shadow-sm;
+}
+
+.consensus-tabs {
+  @apply flex gap-2 mb-6 border-b border-border pb-2;
+}
+
+.consensus-tab {
+  @apply px-4 py-2 rounded-t-lg cursor-pointer transition-all duration-200 font-medium text-muted-foreground;
+}
+
+.consensus-tab:hover {
+  @apply text-primary;
+}
+
+.consensus-tab.active {
+  @apply text-primary border-b-2 border-primary bg-secondary/30;
+}
+
+.analytics-chart-container {
+  @apply h-[300px] my-6;
+}
+
+/* Loading indicator */
+.loading-indicator {
+  @apply flex items-center justify-center py-8;
+}
+
+.loading-circle {
+  @apply w-2.5 h-2.5 mx-1 rounded-full bg-primary;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.loading-circle:nth-child(1) {
+  animation-delay: -0.32s;
+  @apply bg-primary/70;
+}
+
+.loading-circle:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loading-circle:nth-child(3) {
+  @apply bg-primary/90;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1.0); }
+}
